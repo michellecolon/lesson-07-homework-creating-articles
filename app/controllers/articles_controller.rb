@@ -3,17 +3,20 @@ class ArticlesController < ApplicationController
     #Article.all runs: SELECT * FROM articles
     @articles = Article.all
   end
+
   def new
     @article = Article.new
   end
+
   def show
     @article = Article.find(params[:id])
   end
+  
   def create
     puts 'Creating article'
     @article = Article.create(article_params)
 
-  redirect_to article_path(@article)
+    redirect_to article_path(@article)
   end
 
   private
